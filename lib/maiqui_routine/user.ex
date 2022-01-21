@@ -33,5 +33,12 @@ defmodule MaiquiRoutine.User do
     |> validate_length(:password, min: 8)
     |> validate_format(:email, ~r/^[\w.!#$%&’*+\-\/=?\^`{|}~]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i)
     |> unique_constraint(:email)
+    |> put_pass_hash()
   end
+
+  defp put_pass_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, Argon2.add_hash(password))
+  end
+
+  defp put_pass_hash(changeset), do: changeset
 end
