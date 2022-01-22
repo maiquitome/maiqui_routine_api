@@ -2,7 +2,7 @@ defmodule MaiquiRoutine.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @type params :: %{
+  @type params() :: %{
     name: String.t(),
     email: String.t(),
     password: String.t()
