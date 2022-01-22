@@ -44,7 +44,9 @@ defmodule MaiquiRoutine.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:argon2_elixir, "~> 3.0"}
+      {:argon2_elixir, "~> 3.0"},
+      {:absinthe, "~> 1.6.0"},
+      {:absinthe_phoenix, "~> 2.0.0"}
     ]
   end
 
