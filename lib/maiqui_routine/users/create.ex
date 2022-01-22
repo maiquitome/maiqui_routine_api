@@ -1,6 +1,12 @@
 defmodule MaiquiRoutine.Users.Create do
   alias MaiquiRoutine.{User, Repo}
 
+  @type user_params :: %{
+          name: String.t(),
+          email: String.t(),
+          password: String.t()
+        }
+
   @doc """
   Inserts a user in the database.
 
@@ -12,6 +18,7 @@ defmodule MaiquiRoutine.Users.Create do
       {:ok, %MaiquiRoutine.User{}}
 
   """
+  @spec call(user_params()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
   def call(%{} = params) do
     %User{}
     |> User.changeset(params)
