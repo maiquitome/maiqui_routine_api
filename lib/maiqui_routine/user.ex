@@ -2,6 +2,12 @@ defmodule MaiquiRoutine.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %{
+    name: String.t(),
+    email: String.t(),
+    password: String.t()
+  }
+
   @fields_that_can_be_changed [
     :email,
     :name,
