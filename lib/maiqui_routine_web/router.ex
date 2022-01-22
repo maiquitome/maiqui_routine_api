@@ -5,6 +5,13 @@ defmodule MaiquiRoutineWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphql", Absinthe.Plug, schema: MaiquiRoutineWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: MaiquiRoutineWeb.Schema
+  end
+
   scope "/api", MaiquiRoutineWeb do
     pipe_through :api
   end
