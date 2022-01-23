@@ -14,6 +14,8 @@ defmodule MaiquiRoutineWeb.Router do
 
   scope "/api", MaiquiRoutineWeb do
     pipe_through :api
+
+    get "/users", UsersController, :index
   end
 
   # Enables LiveDashboard only for development
