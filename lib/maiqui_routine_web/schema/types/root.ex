@@ -3,6 +3,7 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
 
   alias MaiquiRoutineWeb.Schema.Types
   alias MaiquiRoutineWeb.Resolvers.User, as: UserResolver
+  alias MaiquiRoutineWeb.Middlewares.Log
 
   import_types Types.User
   import_types Types.Custom.UUID4
@@ -13,6 +14,7 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
       arg :id, non_null(:uuid4)
 
       resolve &UserResolver.get/2
+      middleware Log
     end
   end
 
@@ -22,6 +24,7 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
       arg :input, non_null(:create_user_input)
 
       resolve &UserResolver.create/2
+      middleware Log
     end
   end
 end
