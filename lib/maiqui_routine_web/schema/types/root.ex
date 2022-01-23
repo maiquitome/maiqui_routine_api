@@ -1,6 +1,8 @@
 defmodule MaiquiRoutineWeb.Schema.Types.Root do
   use Absinthe.Schema.Notation
 
+  # alias MaiquiRoutine.{User, Repo}
+
   alias MaiquiRoutineWeb.Schema.Types
   alias MaiquiRoutineWeb.Resolvers.User, as: UserResolver
   alias MaiquiRoutineWeb.Middlewares.Log
@@ -16,6 +18,19 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
       resolve &UserResolver.get/2
       middleware Log
     end
+
+    @desc "Gets all users"
+    field :users, list_of(:user) do
+      resolve &UserResolver.all/2
+      middleware Log
+    end
+
+    # @desc "Gets all users"
+    # field :users, list_of(:user) do
+    #   resolve fn _params, _context ->
+    #     {:ok, Repo.all(User)}
+    #   end
+    # end
   end
 
   object :root_mutation do

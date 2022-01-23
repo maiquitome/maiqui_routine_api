@@ -17,7 +17,9 @@ defmodule MaiquiRoutineWeb.Middlewares.Log do
     resolution
   end
 
-  defp log_message(%Absinthe.Resolution{value: value}) when is_struct(value) do
+  defp log_message(%Absinthe.Resolution{value: value})
+       when is_struct(value)
+       when is_list(value) do
     "Resolution value #{inspect(value)}"
   end
 
