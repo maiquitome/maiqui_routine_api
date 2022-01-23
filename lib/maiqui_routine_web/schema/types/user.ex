@@ -6,4 +6,10 @@ defmodule MaiquiRoutineWeb.Schema.Types.User do
     field :email, non_null(:string)
     field :name, non_null(:string)
   end
+
+  input_object :create_user_input do
+    field :email, non_null(:string)
+    field :name, non_null(:string), description: "User Name"
+    field :password, non_null(:string)
+  end
 end

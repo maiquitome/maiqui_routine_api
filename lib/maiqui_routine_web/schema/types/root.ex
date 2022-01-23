@@ -15,4 +15,13 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
       resolve &UserResolver.get/2
     end
   end
+
+  object :root_mutation do
+    @desc "Creates a new user"
+    field :create_user, type: :user do
+      arg :input, non_null(:create_user_input)
+
+      resolve &UserResolver.create/2
+    end
+  end
 end
