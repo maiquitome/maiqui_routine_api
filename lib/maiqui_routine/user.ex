@@ -29,6 +29,7 @@ defmodule MaiquiRoutine.User do
     field :password_hash, :string
 
     has_many :categories, MaiquiRoutine.Category
+    has_many :tasks, MaiquiRoutine.Task
 
     timestamps()
   end

@@ -11,6 +11,7 @@ defmodule MaiquiRoutine.Category do
     field :title_color, :integer
 
     belongs_to :user, MaiquiRoutine.User
+    has_many :tasks, MaiquiRoutine.Task
 
     timestamps()
   end
