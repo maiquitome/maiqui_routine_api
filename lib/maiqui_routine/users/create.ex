@@ -5,7 +5,7 @@ defmodule MaiquiRoutine.Users.Create do
   @doc """
   ### Examples
 
-      iex> user = %{name: "Maiqui", email: "maiqui@gmail.com", password: "12345678"}
+      iex> user = %{name: "Maiqui", email: "maiqui@email.com", password: "12345678"}
 
       iex> MaiquiRoutine.Users.Create.call user
       {:ok, %MaiquiRoutine.User{}}
