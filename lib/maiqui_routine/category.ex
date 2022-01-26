@@ -2,13 +2,20 @@ defmodule MaiquiRoutine.Category do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type params() :: %{
+          dark_color: String.t(),
+          light_color: String.t(),
+          name: String.t(),
+          title_color: String.t()
+        }
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "categories" do
-    field :dark_color, :integer
-    field :light_color, :integer
+    field :dark_color, :string
+    field :light_color, :string
     field :name, :string
-    field :title_color, :integer
+    field :title_color, :string
 
     belongs_to :user, MaiquiRoutine.User
     has_many :tasks, MaiquiRoutine.Task
