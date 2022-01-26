@@ -15,7 +15,7 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
     field :user, type: :user do
       arg :id, non_null(:uuid4)
 
-      resolve &UserResolver.get/2
+      resolve &UserResolver.get_by_id/2
       middleware Log
     end
 

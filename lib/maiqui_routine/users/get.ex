@@ -1,8 +1,9 @@
 defmodule MaiquiRoutine.Users.Get do
   alias MaiquiRoutine.{User, Repo}
+  alias Ecto.Schema
 
-  @spec call(binary()) :: {:ok, Ecto.Schema.t()} | {:error, String.t()}
-  def call(id) when is_binary(id) do
+  @spec by_id(binary()) :: {:ok, Schema.t()} | {:error, String.t()}
+  def by_id(id) when is_binary(id) do
     id
     |> Ecto.UUID.cast()
     |> handle_cast()
