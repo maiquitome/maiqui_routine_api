@@ -1,5 +1,6 @@
 defmodule MaiquiRoutine.Users.Create do
   alias MaiquiRoutine.{User, Repo}
+  alias Ecto.{Schema, Changeset}
 
   @doc """
   ### Examples
@@ -10,7 +11,7 @@ defmodule MaiquiRoutine.Users.Create do
       {:ok, %MaiquiRoutine.User{}}
 
   """
-  @spec call(User.params()) :: {:ok, Ecto.Schema.t()} | {:error, Ecto.Changeset.t()}
+  @spec call(User.params()) :: {:ok, Schema.t()} | {:error, Changeset.t()}
   def call(params) when is_map(params) do
     %User{}
     |> User.changeset(params)
