@@ -2,6 +2,13 @@ defmodule MaiquiRoutine.Users.Get do
   alias MaiquiRoutine.{User, Repo}
   alias Ecto.Schema
 
+  @doc """
+  ## Examples
+
+      iex> MaiquiRoutine.Users.Get.by_id "9871115f-9b15-403e-9897-7d338117da49"
+      {:ok, %MaiquiRoutine.User{}}
+
+  """
   @spec by_id(binary()) :: {:ok, Schema.t()} | {:error, String.t()}
   def by_id(id) when is_binary(id) do
     id
