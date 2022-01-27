@@ -9,6 +9,16 @@ defmodule MaiquiRoutine.Category do
           title_color: String.t()
         }
 
+  @required_fields [
+    :name,
+    :dark_color,
+    :light_color,
+    :title_color,
+    :user_id
+  ]
+
+  @fields_that_can_be_changed [] ++ @required_fields
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "categories" do
@@ -26,7 +36,7 @@ defmodule MaiquiRoutine.Category do
   @doc false
   def changeset(category, attrs) do
     category
-    |> cast(attrs, [:name, :dark_color, :light_color, :title_color])
-    |> validate_required([:name, :dark_color, :light_color, :title_color])
+    |> cast(attrs, @fields_that_can_be_changed)
+    |> validate_required(@required_fields)
   end
 end
