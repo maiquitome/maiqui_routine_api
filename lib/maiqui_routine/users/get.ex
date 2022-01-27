@@ -16,6 +16,21 @@ defmodule MaiquiRoutine.Users.Get do
     |> handle_cast()
   end
 
+  @doc """
+  ## Examples
+
+      iex> MaiquiRoutine.Users.Get.by_email "maiqui@email.com"
+      {:ok, %MaiquiRoutine.User{}}
+
+  """
+  @spec by_email(binary()) :: {:ok, Schema.t()} | {:error, String.t()}
+  def by_email(email) when is_binary(email) do
+    case Repo.get_by(User, email: email) do
+      nil -> {:error, "User not found"}
+      user_schema -> {:ok, user_schema}
+    end
+  end
+
   defp handle_cast({:ok, id}) when is_binary(id) do
     case Repo.get(User, id) do
       nil -> {:error, "User not found"}
