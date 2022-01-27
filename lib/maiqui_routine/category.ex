@@ -38,5 +38,6 @@ defmodule MaiquiRoutine.Category do
     category
     |> cast(attrs, @fields_that_can_be_changed)
     |> validate_required(@required_fields)
+    |> unique_constraint([:user_id, :name])
   end
 end
