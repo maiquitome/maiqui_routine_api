@@ -1,4 +1,4 @@
-defmodule MaiquiRoutine.Repo.Migrations.TasksCreateWeekdaysColumn do
+defmodule MaiquiRoutine.Repo.Migrations.CreateTasksWeekdaysColumn do
   use Ecto.Migration
 
   def change do
