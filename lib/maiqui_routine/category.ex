@@ -6,13 +6,14 @@ defmodule MaiquiRoutine.Category do
           dark_color: String.t(),
           light_color: String.t(),
           name: String.t(),
-          title_color: String.t()
+          title_color: String.t(),
+          user_id: binary()
         }
 
   @required_fields [
-    :name,
     :dark_color,
     :light_color,
+    :name,
     :title_color,
     :user_id
   ]
