@@ -17,6 +17,6 @@ defmodule MaiquiRoutine.Categories.Create do
   def call(params) when is_map(params) do
     %Category{}
     |> Category.changeset(params)
-    |> Repo.insert();
+    |> Repo.insert()
   end
 end
