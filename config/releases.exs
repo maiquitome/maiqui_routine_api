@@ -53,6 +53,7 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
+    url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443]
     secret_key_base: secret_key_base
 
   # ## Using releases
