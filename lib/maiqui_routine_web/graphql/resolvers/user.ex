@@ -1,4 +1,4 @@
-defmodule MaiquiRoutineWeb.Resolvers.User do
+defmodule MaiquiRoutineWeb.Graphql.Resolvers.User do
   alias MaiquiRoutine.{User, Users, Repo}
 
   def get_by_id(%{id: user_id}, _context), do: Users.get_by_id(user_id)

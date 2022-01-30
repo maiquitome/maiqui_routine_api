@@ -1,7 +1,7 @@
-defmodule MaiquiRoutineWeb.Schema do
+defmodule MaiquiRoutineWeb.Graphql.Schema do
   use Absinthe.Schema
 
-  import_types MaiquiRoutineWeb.Schema.Types.Root
+  import_types MaiquiRoutineWeb.Graphql.Types.Root
 
   query do
     import_fields :root_query

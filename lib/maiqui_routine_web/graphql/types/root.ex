@@ -1,16 +1,13 @@
-defmodule MaiquiRoutineWeb.Schema.Types.Root do
+defmodule MaiquiRoutineWeb.Graphql.Types.Root do
   use Absinthe.Schema.Notation
 
   # alias MaiquiRoutine.{User, Repo}
 
-  alias MaiquiRoutineWeb.Schema.Types
-  alias MaiquiRoutineWeb.Resolvers.User, as: UserResolver
-  alias MaiquiRoutineWeb.Resolvers.Category, as: CategoryResolver
-  alias MaiquiRoutineWeb.Middlewares.Log
+  alias MaiquiRoutineWeb.Graphql.Resolvers.User, as: UserResolver
+  alias MaiquiRoutineWeb.Graphql.Resolvers.Category, as: CategoryResolver
+  alias MaiquiRoutineWeb.Graphql.Middlewares.Log
 
-  import_types Types.User
-  import_types Types.Category
-  import_types Types.Custom.UUID4
+  import_types MaiquiRoutineWeb.Graphql.Types
 
   object :root_query do
     @desc "Get user by id"

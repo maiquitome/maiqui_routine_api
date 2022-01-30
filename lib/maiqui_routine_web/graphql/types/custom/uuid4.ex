@@ -1,4 +1,4 @@
-defmodule MaiquiRoutineWeb.Schema.Types.Custom.UUID4 do
+defmodule MaiquiRoutineWeb.Graphql.Types.Custom.UUID4 do
   @moduledoc """
   The UUID4 scalar type allows UUID4 compliant strings to be passed in and out.
   Requires `{ :ecto, ">= 0.0.0" }` package: https://github.com/elixir-ecto/ecto

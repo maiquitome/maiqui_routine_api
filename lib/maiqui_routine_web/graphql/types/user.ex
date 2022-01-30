@@ -1,4 +1,4 @@
-defmodule MaiquiRoutineWeb.Schema.Types.User do
+defmodule MaiquiRoutineWeb.Graphql.Types.User do
   use Absinthe.Schema.Notation
 
   object :user do

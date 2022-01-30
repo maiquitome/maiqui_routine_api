@@ -2,7 +2,7 @@ defmodule MaiquiRoutineWeb.UsersController do
   use MaiquiRoutineWeb, :controller
 
   use Absinthe.Phoenix.Controller,
-    schema: MaiquiRoutineWeb.Schema,
+    schema: MaiquiRoutineWeb.Graphql.Schema,
     action: [mode: :internal]
 
   @graphql """

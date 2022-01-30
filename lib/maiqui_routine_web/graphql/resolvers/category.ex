@@ -1,4 +1,4 @@
-defmodule MaiquiRoutineWeb.Resolvers.Category do
+defmodule MaiquiRoutineWeb.Graphql.Resolvers.Category do
   alias MaiquiRoutine.{Categories}
 
   def get_by_name(%{category_name: category_name, user_id: user_id}, _context), do: Categories.get_by_name(category_name, user_id)

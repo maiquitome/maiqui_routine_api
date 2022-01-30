@@ -1,4 +1,4 @@
-defmodule MaiquiRoutineWeb.Schema.Types.Category do
+defmodule MaiquiRoutineWeb.Graphql.Types.Category do
   use Absinthe.Schema.Notation
 
   object :category do

@@ -1,4 +1,4 @@
-defmodule MaiquiRoutineWeb.Middlewares.Log do
+defmodule MaiquiRoutineWeb.Graphql.Middlewares.Log do
   require Logger
 
   @behaviour Absinthe.Middleware
