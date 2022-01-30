@@ -19,7 +19,8 @@ defmodule MaiquiRoutineWeb.Graphql.Middlewares.Log do
 
   defp log_message(%Absinthe.Resolution{value: value})
        when is_struct(value)
-       when is_list(value) do
+       when is_list(value)
+       when is_nil(value) do
     "Resolution value #{inspect(value)}"
   end
 
