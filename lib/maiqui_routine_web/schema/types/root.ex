@@ -5,9 +5,11 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
 
   alias MaiquiRoutineWeb.Schema.Types
   alias MaiquiRoutineWeb.Resolvers.User, as: UserResolver
+  alias MaiquiRoutineWeb.Resolvers.Category, as: CategoryResolver
   alias MaiquiRoutineWeb.Middlewares.Log
 
   import_types Types.User
+  import_types Types.Category
   import_types Types.Custom.UUID4
 
   object :root_query do
@@ -31,6 +33,14 @@ defmodule MaiquiRoutineWeb.Schema.Types.Root do
     #     {:ok, Repo.all(User)}
     #   end
     # end
+
+    @desc "Gets all categories"
+    field :categories, list_of(:category) do
+      arg :user_id, non_null(:uuid4)
+
+      resolve &CategoryResolver.get_all/2
+      middleware Log
+    end
   end
 
   object :root_mutation do
