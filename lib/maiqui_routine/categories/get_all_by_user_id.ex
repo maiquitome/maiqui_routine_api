@@ -11,10 +11,10 @@ defmodule MaiquiRoutine.Categories.GetAllByUserId do
 
       iex> {:ok, %User{id: user_id}} = Users.get_by_email "maiqui@email.com"
 
-      iex> Categories.GetAll.call user_id
+      iex> Categories.GetAllByUserId.call user_id
       {:ok, [%Category{}]}
 
-      iex> Categories.GetAll.call "ad42bac1-5cae-4c7c-8b40-8f056d5163a1"
+      iex> Categories.GetAllByUserId.call "ad42bac1-5cae-4c7c-8b40-8f056d5163a1"
       {:error, "User not found"}
 
   """
