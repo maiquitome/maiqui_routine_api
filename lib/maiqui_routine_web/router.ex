@@ -9,7 +9,10 @@ defmodule MaiquiRoutineWeb.Router do
     pipe_through :api
 
     forward "/graphql", Absinthe.Plug, schema: MaiquiRoutineWeb.Schema
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: MaiquiRoutineWeb.Schema
+
+    if Mix.env() == :dev do
+      forward "/graphiql", Absinthe.Plug.GraphiQL, schema: MaiquiRoutineWeb.Schema
+    end
   end
 
   scope "/api", MaiquiRoutineWeb do
