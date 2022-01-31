@@ -47,6 +47,7 @@ defmodule MaiquiRoutine.MixProject do
       {:argon2_elixir, "~> 3.0"},
       {:absinthe, "~> 1.6.0"},
       {:absinthe_phoenix, "~> 2.0.0"},
+      {:absinthe_error_payload, "~> 1.1"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
