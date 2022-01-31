@@ -48,5 +48,13 @@ defmodule MaiquiRoutineWeb.Graphql.Types.Root do
       resolve &UserResolver.create/2
       middleware Log
     end
+
+    @desc "Creates a new category"
+    field :create_category, type: :category do
+      arg :input, non_null(:create_category_input)
+
+      resolve &CategoryResolver.create/2
+      middleware Log
+    end
   end
 end
