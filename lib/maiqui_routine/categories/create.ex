@@ -5,12 +5,23 @@ defmodule MaiquiRoutine.Categories.Create do
   @doc """
   ### Examples
 
-      iex> {:ok, user} = MaiquiRoutine.Users.Get.by_email "maiqui@email.com"
+      iex> alias MaiquiRoutine.{
+        Category,
+        Categories,
+        ColourPalette,
+        ColourPalettes,
+        User,
+        Users
+      }
 
-      iex> category = %{user_id: user.id, name: "study", dark_color: "2F9CF3", light_color: "BBDEFB", title_color: "456170"}
+      iex> {:ok, %User{id: user_id}} = Users.Get.by_email "maiqui@email.com"
 
-      iex> MaiquiRoutine.Categories.Create.call category
-      {:ok, %MaiquiRoutine.Category{}}
+      iex> {:ok, %ColourPalette{id: colour_palette_id}} = ColourPalettes.get_by_name "blue"
+
+      iex> category_params = %{user_id: user_id, name: "study", colour_palette_id: colour_palette_id}
+
+      iex> Categories.Create.call category_params
+      {:ok, %Category{}}
 
   """
   @spec call(Category.params()) :: {:ok, Schema.t()} | {:error, Changeset.t()}
