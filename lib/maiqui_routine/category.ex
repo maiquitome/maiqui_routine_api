@@ -3,19 +3,15 @@ defmodule MaiquiRoutine.Category do
   import Ecto.Changeset
 
   @type params() :: %{
-          dark_color: String.t(),
-          light_color: String.t(),
           name: String.t(),
-          title_color: String.t(),
-          user_id: binary()
+          user_id: binary(),
+          colour_palette_id: binary()
         }
 
   @required_fields [
-    :dark_color,
-    :light_color,
     :name,
-    :title_color,
-    :user_id
+    :user_id,
+    :colour_palette_id
   ]
 
   @fields_that_can_be_changed [] ++ @required_fields
@@ -23,13 +19,12 @@ defmodule MaiquiRoutine.Category do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "categories" do
-    field :dark_color, :string
-    field :light_color, :string
     field :name, :string
-    field :title_color, :string
 
     belongs_to :user, MaiquiRoutine.User
     has_many :tasks, MaiquiRoutine.Task
+
+    belongs_to :colour_palette, MaiquiRoutine.ColourPalette
 
     timestamps()
   end
