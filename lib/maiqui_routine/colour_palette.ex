@@ -36,5 +36,6 @@ defmodule MaiquiRoutine.ColourPalette do
     colour_palette
     |> cast(attrs, @fields_that_can_be_changed)
     |> validate_required(@required_fields)
+    |> unique_constraint(:name)
   end
 end
