@@ -32,6 +32,7 @@ defmodule MaiquiRoutine.Task do
 
     belongs_to :user, MaiquiRoutine.User
     belongs_to :category, MaiquiRoutine.Category
+    has_many :todos, MaiquiRoutine.Todo
 
     timestamps()
   end
