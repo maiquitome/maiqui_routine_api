@@ -1,5 +1,13 @@
 defmodule MaiquiRoutine.Categories.Create do
-  alias MaiquiRoutine.{Category, Repo}
+  alias MaiquiRoutine.{
+    Category,
+    ColourPalette,
+    ColourPalettes,
+    Repo,
+    User,
+    Users
+  }
+
   alias Ecto.{Schema, Changeset}
 
   @doc """
@@ -14,7 +22,7 @@ defmodule MaiquiRoutine.Categories.Create do
         Users
       }
 
-      iex> {:ok, %User{id: user_id}} = Users.Get.by_email "maiqui@email.com"
+      iex> {:ok, %User{id: user_id}} = Users.get_by_email "maiqui@email.com"
 
       iex> {:ok, %ColourPalette{id: colour_palette_id}} = ColourPalettes.get_by_name "blue"
 
@@ -25,9 +33,18 @@ defmodule MaiquiRoutine.Categories.Create do
 
   """
   @spec call(Category.params()) :: {:ok, Schema.t()} | {:error, Changeset.t()}
-  def call(params) when is_map(params) do
-    %Category{}
-    |> Category.changeset(params)
-    |> Repo.insert()
+  def call(
+        %{
+          user_id: user_id,
+          colour_palette_id: colour_palette_id
+        } = params
+      )
+      when is_map(params) do
+    with {:ok, %User{}} <- Users.get_by_id(user_id),
+         {:ok, %ColourPalette{}} <- ColourPalettes.get_by_id(colour_palette_id) do
+      %Category{}
+      |> Category.changeset(params)
+      |> Repo.insert()
+    end
   end
 end
