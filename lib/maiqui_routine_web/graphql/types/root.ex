@@ -5,6 +5,7 @@ defmodule MaiquiRoutineWeb.Graphql.Types.Root do
 
   alias MaiquiRoutineWeb.Graphql.Resolvers.User, as: UserResolver
   alias MaiquiRoutineWeb.Graphql.Resolvers.Category, as: CategoryResolver
+  alias MaiquiRoutineWeb.Graphql.Resolvers.Task, as: TaskResolver
   alias MaiquiRoutineWeb.Graphql.Middlewares.Log
 
   import_types MaiquiRoutineWeb.Graphql.Types
@@ -42,6 +43,15 @@ defmodule MaiquiRoutineWeb.Graphql.Types.Root do
       arg :user_id, non_null(:uuid4)
 
       resolve &CategoryResolver.get_all/2
+      middleware Log
+    end
+
+    @desc "Gets all tasks"
+    field :tasks, list_of(:task) do
+      arg :user_id, non_null(:uuid4)
+      arg :weekday, non_null(:string)
+
+      resolve &TaskResolver.get_all_by_weekday/2
       middleware Log
     end
   end
