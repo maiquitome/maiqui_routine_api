@@ -14,11 +14,7 @@ config :maiqui_routine,
 # Auth
 config :maiqui_routine, MaiquiRoutineWeb.Auth.Guardian,
   issuer: "maiqui_routine",
-  secret_key:
-    System.get_env("SECRET_KEY_GUARDIAN") ||
-      raise("""
-      environment variable SECRET_KEY_GUARDIAN is missing.
-      """)
+  secret_key: System.get_env("SECRET_KEY_GUARDIAN")
 
 # Configures the endpoint
 config :maiqui_routine, MaiquiRoutineWeb.Endpoint,
