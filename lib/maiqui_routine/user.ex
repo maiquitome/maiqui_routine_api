@@ -41,6 +41,7 @@ defmodule MaiquiRoutine.User do
     |> validate_required(@required_fields)
     |> validate_length(:password, min: 8)
     |> validate_format(:email, ~r/^[\w.!#$%&’*+\-\/=?\^`{|}~]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i)
+    |> update_change(:email, &String.downcase/1)
     |> unique_constraint(:email)
     |> put_pass_hash()
   end
