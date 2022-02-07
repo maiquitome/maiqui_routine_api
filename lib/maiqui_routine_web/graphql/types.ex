@@ -4,6 +4,8 @@ defmodule MaiquiRoutineWeb.Graphql.Types do
   alias MaiquiRoutineWeb.Graphql.Types
 
   import_types Absinthe.Type.Custom
+  
+  import_types Types.Auth
   import_types Types.Category
   import_types Types.Custom.UUID4
   import_types Types.Task

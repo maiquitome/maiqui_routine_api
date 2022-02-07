@@ -5,8 +5,12 @@ defmodule MaiquiRoutineWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug MaiquiRoutineWeb.Plugs.Context
+  end
+
   scope "/api" do
-    pipe_through :api
+    pipe_through [:api, :auth]
 
     forward "/graphql", Absinthe.Plug, schema: MaiquiRoutineWeb.Graphql.Schema
 
@@ -16,9 +20,9 @@ defmodule MaiquiRoutineWeb.Router do
   end
 
   scope "/api", MaiquiRoutineWeb do
-    pipe_through :api
+    pipe_through [:api, :auth]
 
-    get "/users", UsersController, :index
+    # get "/users", UsersController, :index
   end
 
   # Enables LiveDashboard only for development
